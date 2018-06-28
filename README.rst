@@ -116,7 +116,7 @@ Run ``./test.sh`` and check that Matlab output looks like::
     PARDISO performed 0 iterative refinement steps.
     The maximum residual for the solution is 9.9e-12.
 
-If you spot some erros then you probably have to get back
+If you spot some erros then you probably have to go back
 to the previous steps.
 
 Step 4. Install
@@ -136,8 +136,9 @@ License
 =======
 
 BSD 2-clause. Note that this license only applies to
-the recipes of this repository and in no way applies to
-source code and binaries it downloads, builds and links.
+the recipes in this repository and in no way applies to
+source codes and binaries downloaded, built, linked,
+and installed by these recipes.
 
 Authors
 =======
