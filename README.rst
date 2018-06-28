@@ -3,7 +3,7 @@ Pardiso Matlab wrappers
 =======================
 
 This is a collection of scripts for building `Pardiso
-<https://www.pardiso-project.org/`_ wrappers for Matlab.
+<https://www.pardiso-project.org/>`_ wrappers for Matlab.
 Wrapper source code is `officially available from Pardiso
 website <https://pardiso-project.org/manual/pardiso-matlab.tgz>`_
 but documentation of the build process is basically missing.
