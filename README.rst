@@ -35,10 +35,12 @@ Quick install guide
     ./test.sh
     cp -r build/* <prefix>  # optional
 
-To configure environment to use the wrappers::
+To use Pardiso from Matlab::
 
     source build/share/pardiso_wrappers.conf
     source <prefix>/share/pardiso_wrappers.conf  # if installed elsewhere
+
+    matlab
 
 Dependencies
 ============
