@@ -22,7 +22,7 @@ tar -xzf pardiso-matlab.tgz
 cd pardiso-matlab
 
 # Build
-MEXFLAGS="CXX=${CXX} -largeArrayDims -L\"${PREFIX}/lib\" -lpardiso -lmwlapack -lmwblas -lgfortran -lpthread"
+MEXFLAGS="CXX=${CXX} -largeArrayDims -L\"${PREFIX}/lib\" -lpardiso"
 SRC_COMMON="common.cpp matlabmatrix.cpp sparsematrix.cpp pardisoinfo.cpp"
 ${MEX} ${MEXFLAGS} -output ${PREFIX}/matlab/pardisoinit    pardisoinit.cpp    ${SRC_COMMON}
 ${MEX} ${MEXFLAGS} -output ${PREFIX}/matlab/pardisoreorder pardisoreorder.cpp ${SRC_COMMON}
