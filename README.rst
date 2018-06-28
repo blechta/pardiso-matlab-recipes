@@ -42,6 +42,14 @@ To use Pardiso from Matlab::
 
     matlab
 
+    >> pardisoinit(...);
+    >> ...
+
+Usage of Matlab/Pardiso
+=======================
+
+See https://pardiso-project.org/manual/manual.pdf#page=34.
+
 Dependencies
 ============
 
@@ -53,8 +61,8 @@ The recipes are known to work on
 Note that none of these GCC versions are officially
 supported by R2018a but it seems to work fine.
 
-Usage
-=====
+Detailed install guide
+======================
 
 Step 0. Obtain Pardiso
 ----------------------
