@@ -1,0 +1,12 @@
+*.tar.gz
+*.tgz
+
+/build/lib
+/build/include
+/build/matlab
+
+/pardiso-matlab
+/OpenBLAS*
+
+/libpardiso*
+/pardiso.lic
