@@ -12,5 +12,5 @@ tar -xzf OpenBLAS-${OPENBLAS_VERSION}.tar.gz
 
 # Build and install OpenBLAS into the build dir
 cd OpenBLAS-${OPENBLAS_VERSION}
-make -j${PROCS} USE_OPENMP=1
+make -j${PROCS} USE_OPENMP=0 USE_THREAD=0
 make install PREFIX="${PREFIX}"
