@@ -132,6 +132,13 @@ Note of ``LD_PRELOAD="${PREFIX}/lib/libopenblas.so"`` trick
 in the configuration file which makes your Matlab use
 OpenBLAS instead of MKL.
 
+Testing
+=======
+
+There is obviously no public CI because Matlab and Pardiso
+license do not allow to do that. So you have to believe me
+that this works.
+
 License
 =======
 
