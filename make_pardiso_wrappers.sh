@@ -5,7 +5,10 @@ set -e
 : ${CXX:=c++}
 : ${MEX:=mex}
 : ${PARDISO_PATH:="${PWD}"}
-: ${PARDISO_LIB:="${PARDISO_PATH}/libpardiso600-GNU720-X86-64.so"}
+: ${PARDISO_LIB_PATH:="${PARDISO_PATH}"}
+: ${PARDISO_LIB:="${PARDISO_LIB_PATH}/libpardiso600-GNU720-X86-64.so"}
+: ${PARDISO_LIC_PATH:="${PARDISO_PATH}"}
+: ${PARDISO_LIC:="${PARDISO_LIC_PATH}/pardiso.lic"}
 : ${PREFIX:="${PWD}/build"}
 
 # Locate libpardiso and install into the build dir
@@ -13,8 +16,9 @@ if [ ! -f "${PARDISO_LIB}" ]; then
     echo "Did not find ${PARDISO_LIB}. Please specify PARDISO_PATH."
     exit 1
 fi
-mkdir -p ${PREFIX}/lib
+mkdir -p ${PREFIX}/lib ${PREFIX}/share
 cp ${PARDISO_LIB} ${PREFIX}/lib/libpardiso.so
+cp ${PARDISO_LIC} ${PREFIX}/share/pardiso.lic
 
 # Download and unpack pardiso wrappers
 wget -c https://pardiso-project.org/manual/pardiso-matlab.tgz

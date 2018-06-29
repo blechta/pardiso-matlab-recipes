@@ -4,6 +4,8 @@
 /build/lib
 /build/include
 /build/matlab
+/build/share
+!/build/share/pardiso_wrappers.conf
 
 /pardiso-matlab
 /OpenBLAS*
