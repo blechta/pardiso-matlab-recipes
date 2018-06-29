@@ -56,7 +56,7 @@ Dependencies
 The recipes are known to work on
 
 * Matlab R2018a, G++ 5.4.0 (Ubuntu 16.04),
-* Matlab R2018a, G++ 7.3.0 (Ubuntu 17.04).
+* Matlab R2018a, G++ 7.3.0 (Ubuntu 18.04).
 
 Note that none of these GCC versions are officially
 supported by R2018a but it seems to work fine.
