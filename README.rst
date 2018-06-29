@@ -33,7 +33,7 @@ Quick install guide
     ./make_openblas.sh
     ./make_pardiso_wrappers.sh
     ./test.sh
-    cp -r build/* <prefix>  # optional install elsewhere
+    cp -r build/* <prefix>  # optionally install to other location
 
 To use Pardiso from Matlab::
 
