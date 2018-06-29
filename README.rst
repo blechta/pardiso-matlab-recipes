@@ -1,6 +1,6 @@
-=======================
-Pardiso Matlab wrappers
-=======================
+=========================================
+Build recipes for Pardiso-Matlab bindings
+=========================================
 
 This is a collection of scripts for building `Pardiso
 <https://www.pardiso-project.org/>`_ wrappers for Matlab.
