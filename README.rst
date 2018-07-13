@@ -9,20 +9,17 @@ website <https://pardiso-project.org/manual/pardiso-matlab.tgz>`_
 but documentation of the build process is basically missing.
 The aim of this repository is to address this issue.
 
-MKL BLAS/LAPACK issue
-=====================
+Warning: BLAS integer size issue
+================================
 
-Matlab is shipped with MKL BLAS/LAPACK but it seems to be
-impossible to link official Pardiso binaries against it.
-Specifically there is a certain ABI incompatibility leading
-to weird error messages, e.g.::
-
-    Intel MKL ERROR: Parameter 9 was incorrect on entry to DGER  .
-
-or SIGSEGV crashes. These recipes circumevent this by
-building `OpenBLAS <https://github.com/xianyi/OpenBLAS>`_
-and dynamically linking it instead of MKL shipped with Matlab.
-It is not known whether this breaks something in Matlab.
+Matlab is shipped with MKL BLAS/LAPACK built with 64-bit
+wide integers. Available Pardiso binaries are build against
+BLAS with 32-bit wide integers. This recipe downloads
+and builds `OpenBLAS <https://github.com/xianyi/OpenBLAS>`_,
+both with 32-bit and 64-bit integers.  32-bit version works
+with Pardiso but makes Matlab segfault on any call to BLAS.
+Examples is Matlab ``polyfit()`` function. It is not known
+how much functionality this breaks in Matlab.
 
 Quick install guide
 ===================
@@ -32,12 +29,15 @@ Quick install guide
     cp /path/to/{libpardiso600-GNU720-X86-64.so,pardiso.lic} .
     ./make_openblas.sh
     ./make_pardiso_wrappers.sh
-    ./test.sh
-    cp -r build/* <prefix>  # optionally install to other location
+    ./test32.sh
+    cp -r build32/* <prefix>  # optionally install to other location
+
+Note that the last line in ``test32.sh`` will segfault as
+explained above.
 
 To use Pardiso from Matlab::
 
-    source build/share/pardiso_wrappers.conf     # if kept in build dir
+    source build32/share/pardiso_wrappers.conf     # if kept in build dir
     source <prefix>/share/pardiso_wrappers.conf  # if installed elsewhere
 
     matlab
@@ -74,8 +74,9 @@ Step 1. Build OpenBLAS
 ----------------------
 
 Run ``./make_openblas.sh``. That will download OpenBLAS,
-build single-threaded version, and install it into ``build/``
-directory. You might need to tweak the file in order to
+build single-threaded version, and install it into ``build32/``
+amd ``build64/`` directories. You might need to tweak the
+file in order to
 
 * use ``make TARGET=...`` if CPU autodetection fails;
 * use ``make DYNAMIC_ARCH=1`` to support heterogenous platform;
@@ -99,8 +100,9 @@ For example::
 Step 3. Test
 ------------
 
-Run ``./test.sh`` and check that Matlab output looks like::
+Run ``./test32.sh`` and check that Matlab output looks like::
 
+    [...]
     The factors have 17 nonzero entries.
     The matrix has 3 positive and 1 negative eigenvalues.
     PARDISO performed 0 iterative refinement steps.
@@ -115,6 +117,9 @@ Run ``./test.sh`` and check that Matlab output looks like::
     The factors have 130416 nonzero entries.
     PARDISO performed 0 iterative refinement steps.
     The maximum residual for the solution is 9.9e-12.
+    !!! Now running failing tests !!!
+    [...]
+
 
 If you spot some erros then you probably have to go back
 to the previous steps.
@@ -122,7 +127,7 @@ to the previous steps.
 Step 4. Install
 ---------------
 
-Installation in the ``build`` directory is relocatable.
+Installation in the ``build32`` directory is relocatable.
 You can just move its contents to any ``<prefix>`` (or
 leave it where it is) and setup the environment by
 ``source <prefix>/share/pardiso_wrappers.conf`` before
