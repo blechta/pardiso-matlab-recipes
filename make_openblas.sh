@@ -2,7 +2,7 @@
 set -e
 
 # Default values
-: ${OPENBLAS_VERSION:=0.3.0}
+: ${OPENBLAS_VERSION:=0.3.6}
 : ${PREFIX32:="${PWD}/build32"}
 : ${PREFIX64:="${PWD}/build64"}
 
