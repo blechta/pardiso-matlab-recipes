@@ -155,4 +155,4 @@ and installed by these recipes.
 Authors
 =======
 
-`Jan Blechta <https://www.karlin.mff.cuni.cz/~blechta/>`_
+`Jan Blechta <https://www-user.tu-chemnitz.de/~blej/>`_
