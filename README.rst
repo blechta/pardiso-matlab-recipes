@@ -60,6 +60,18 @@ Combinations known to work:
 * Matlab R2019a, G++ 5.4.0 (Ubuntu 16.04), OpenBLAS 0.3.6, libpardiso600-GNU720-X86-64.so
 * Matlab R2019a, G++ 7.4.0 (Ubuntu 18.04), OpenBLAS 0.3.6, libpardiso600-GNU720-X86-64.so
 * Matlab R2019a, G++ 7.4.0 (Ubuntu 18.04), OpenBLAS 0.3.6, libpardiso600-GNU800-X86-64.so
+* Matlab R2020a, G++ 5.4.0 (Ubuntu 16.04), OpenBLAS 0.3.10, libpardiso600-GNU720-X86-64.so
+* Matlab R2020a, G++ 9.3.0 (Ubuntu 20.04), OpenBLAS 0.3.10, libpardiso600-GNU720-X86-64.so
+* Matlab R2020a, G++ 9.3.0 (Ubuntu 20.04), OpenBLAS 0.3.10, libpardiso600-GNU800-X86-64.so
+
+Combinations known not working:
+
+* Matlab R2020a, G++ 5.4.0 (Ubuntu 16.04), OpenBLAS 0.3.10, libpardiso600-GNU800-X86-64.so::
+
+    >> pardisoinit(1, 0)
+    Invalid MEX-file '/home/jan/dev/pardiso-matlab-recipes/build32/matlab/pardisoinit.mexa64':
+    /lib/x86_64-linux-gnu/libm.so.6: version `GLIBC_2.27' not found (required by
+    /home/jan/dev/pardiso-matlab-recipes/build32/lib/libpardiso.so)
 
 Detailed install guide
 ======================
