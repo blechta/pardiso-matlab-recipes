@@ -1,0 +1,6 @@
+Run::
+
+  rm -rf build/ && ./make_pardiso_wrappers.sh && ./test.sh
+
+and then hit `r` (run) and `c` (continue) to reproduce the
+segfault.
